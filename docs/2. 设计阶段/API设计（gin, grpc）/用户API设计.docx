@@ -1,0 +1,59 @@
+用户API设计
+
+一、概述
+
+本文件描述了电商应用中用户相关的API设计，包括用户注册、登录、信息管理等功能。
+
+二、用户注册API
+
+1. API路径：/api/users/register
+2. 请求方法：POST
+3. 请求参数：
+   - username: 用户名（必填）
+   - password: 密码（必填）
+   - email: 邮箱（必填）
+   - phone: 手机号（可选）
+4. 响应：
+   - success: true
+   - message: "注册成功"
+   - data: 用户信息（用户ID、用户名、邮箱、手机号）
+
+三、用户登录API
+
+1. API路径：/api/users/login
+2. 请求方法：POST
+3. 请求参数：
+   - username: 用户名（必填）
+   - password: 密码（必填）
+4. 响应：
+   - success: true
+   - message: "登录成功"
+   - data: 用户信息（用户ID、用户名、邮箱、手机号、token）
+
+四、用户信息管理API
+
+1. API路径：/api/users/profile
+2. 请求方法：GET
+3. 请求参数：
+   - token: 用户token（必填）
+4. 响应：
+   - success: true
+   - message: "获取用户信息成功"
+   - data: 用户信息（用户ID、用户名、邮箱、手机号）
+
+五、修改用户信息API
+
+1. API路径：/api/users/profile
+2. 请求方法：PUT
+3. 请求参数：
+   - token: 用户token（必填）
+   - email: 邮箱（可选）
+   - phone: 手机号（可选）
+4. 响应：
+   - success: true
+   - message: "修改用户信息成功"
+   - data: 用户信息（用户ID、用户名、邮箱、手机号）
+
+六、总结
+
+用户API设计应确保用户相关功能的易用性和安全性。通过上述API设计，可以满足电商应用中用户管理的需求。

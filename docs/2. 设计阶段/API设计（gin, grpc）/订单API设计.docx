@@ -1,0 +1,59 @@
+订单API设计
+
+一、概述
+
+本文件描述了电商应用中订单相关的API设计，包括订单创建、订单列表、订单详情、订单支付等功能。
+
+二、订单创建API
+
+1. API路径：/api/orders
+2. 请求方法：POST
+3. 请求参数：
+   - user_id: 用户ID（必填）
+   - product_ids: 商品ID列表（必填）
+   - quantity: 商品数量列表（必填）
+   - address_id: 收货地址ID（必填）
+4. 响应：
+   - success: true
+   - message: "创建订单成功"
+   - data: 订单信息（订单ID、用户ID、商品列表、订单金额、订单状态）
+
+三、订单列表API
+
+1. API路径：/api/orders
+2. 请求方法：GET
+3. 请求参数：
+   - user_id: 用户ID（必填）
+   - page: 页码（可选）
+   - limit: 每页数量（可选）
+4. 响应：
+   - success: true
+   - message: "获取订单列表成功"
+   - data: 订单列表（订单ID、用户ID、商品列表、订单金额、订单状态、创建时间）
+
+四、订单详情API
+
+1. API路径：/api/orders/{order_id}
+2. 请求方法：GET
+3. 请求参数：
+   - order_id: 订单ID（必填）
+4. 响应：
+   - success: true
+   - message: "获取订单详情成功"
+   - data: 订单详情（订单ID、用户ID、商品列表、订单金额、订单状态、创建时间、支付时间、发货时间、收货时间）
+
+五、订单支付API
+
+1. API路径：/api/orders/{order_id}/pay
+2. 请求方法：POST
+3. 请求参数：
+   - order_id: 订单ID（必填）
+   - payment_method: 支付方式（必填）
+4. 响应：
+   - success: true
+   - message: "订单支付成功"
+   - data: 订单支付信息（订单ID、支付方式、支付状态）
+
+六、总结
+
+订单API设计应确保订单相关功能的易用性和支付的安全性。通过上述API设计，可以满足电商应用中订单管理的需求。

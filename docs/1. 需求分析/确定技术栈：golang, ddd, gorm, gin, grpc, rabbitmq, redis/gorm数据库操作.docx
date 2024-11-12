@@ -1,0 +1,5 @@
+db, err := gorm.Open("mysql", "user:password@/dbname")
+if err != nil {
+    // 处理错误
+}
+defer db.Close()

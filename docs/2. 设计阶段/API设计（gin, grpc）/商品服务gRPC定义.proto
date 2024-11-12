@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package product;
+
+// 商品服务定义
+service ProductService {
+  rpc GetProduct (GetProductRequest) returns (ProductResponse);
+  rpc CreateProduct (CreateProductRequest) returns (ProductResponse);
+  rpc UpdateProduct (UpdateProductRequest) returns (ProductResponse);
+  rpc DeleteProduct (DeleteProductRequest) returns (ProductResponse);
+}
+
+// 获取商品请求
+message GetProductRequest {
+  string id = 1;
+}
+
+// 商品响应
+message ProductResponse {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  int32 stock = 5;
+  // 其他商品信息
+}
+
+// 创建商品请求
+message CreateProductRequest {
+  string name = 1;
+  string description = 2;
+  double price = 3;
+  int32 stock = 4;
+  // 其他商品信息
+}
+
+// 更新商品请求
+message UpdateProductRequest {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  int32 stock = 5;
+  // 其他商品信息
+}
+
+// 删除商品请求
+message DeleteProductRequest {
+  string id = 1;
+}

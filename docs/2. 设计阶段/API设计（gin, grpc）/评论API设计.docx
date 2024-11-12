@@ -1,0 +1,58 @@
+评论API设计
+
+一、概述
+
+本文件描述了电商应用中评论相关的API设计，包括评论创建、评论列表、评论详情等功能。
+
+二、评论创建API
+
+1. API路径：/api/comments
+2. 请求方法：POST
+3. 请求参数：
+   - product_id: 商品ID（必填）
+   - user_id: 用户ID（必填）
+   - content: 评论内容（必填）
+   - rating: 评分（必填）
+4. 响应：
+   - success: true
+   - message: "评论创建成功"
+   - data: 评论信息（评论ID、商品ID、用户ID、评论内容、评分、评论时间）
+
+三、评论列表API
+
+1. API路径：/api/comments
+2. 请求方法：GET
+3. 请求参数：
+   - product_id: 商品ID（必填）
+   - page: 页码（可选）
+   - limit: 每页数量（可选）
+4. 响应：
+   - success: true
+   - message: "获取评论列表成功"
+   - data: 评论列表（评论ID、商品ID、用户ID、评论内容、评分、评论时间）
+
+四、评论详情API
+
+1. API路径：/api/comments/{comment_id}
+2. 请求方法：GET
+3. 请求参数：
+   - comment_id: 评论ID（必填）
+4. 响应：
+   - success: true
+   - message: "获取评论详情成功"
+   - data: 评论详情（评论ID、商品ID、用户ID、评论内容、评分、评论时间）
+
+五、评论删除API
+
+1. API路径：/api/comments/{comment_id}
+2. 请求方法：DELETE
+3. 请求参数：
+   - comment_id: 评论ID（必填）
+   - user_id: 用户ID（必填）
+4. 响应：
+   - success: true
+   - message: "评论删除成功"
+
+六、总结
+
+评论API设计应确保评论功能的易用性和评论内容的准确性。通过上述API设计，可以满足电商应用中评论管理的需求。

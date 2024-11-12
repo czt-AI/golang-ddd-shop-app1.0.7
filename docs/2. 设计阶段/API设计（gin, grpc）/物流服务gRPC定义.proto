@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package logistics;
+
+// 物流服务定义
+service LogisticsService {
+  rpc CreateLogistics (CreateLogisticsRequest) returns (LogisticsResponse);
+  rpc UpdateLogisticsStatus (UpdateLogisticsStatusRequest) returns (LogisticsResponse);
+  rpc GetLogisticsDetails (GetLogisticsDetailsRequest) returns (LogisticsResponse);
+}
+
+// 创建物流请求
+message CreateLogisticsRequest {
+  string order_id = 1;
+  string logistics_company = 2;
+}
+
+// 物流响应
+message LogisticsResponse {
+  string logistics_id = 1;
+  string status = 2;
+  string message = 3;
+}
+
+// 更新物流状态请求
+message UpdateLogisticsStatusRequest {
+  string logistics_id = 1;
+  string status = 2;
+}
+
+// 获取物流详情请求
+message GetLogisticsDetailsRequest {
+  string logistics_id = 1;
+}

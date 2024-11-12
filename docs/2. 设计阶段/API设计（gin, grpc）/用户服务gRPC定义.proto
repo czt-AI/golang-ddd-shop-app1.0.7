@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package user;
+
+// 用户服务定义
+service UserService {
+  rpc GetUser (GetUserRequest) returns (UserResponse);
+  rpc CreateUser (CreateUserRequest) returns (UserResponse);
+  rpc UpdateUser (UpdateUserRequest) returns (UserResponse);
+  rpc DeleteUser (DeleteUserRequest) returns (UserResponse);
+}
+
+// 获取用户请求
+message GetUserRequest {
+  string id = 1;
+}
+
+// 用户响应
+message UserResponse {
+  string id = 1;
+  string name = 2;
+  // 其他用户信息
+}
+
+// 创建用户请求
+message CreateUserRequest {
+  string name = 1;
+  // 其他用户信息
+}
+
+// 更新用户请求
+message UpdateUserRequest {
+  string id = 1;
+  string name = 2;
+  // 其他用户信息
+}
+
+// 删除用户请求
+message DeleteUserRequest {
+  string id = 1;
+}

@@ -1,0 +1,45 @@
+支付API设计
+
+一、概述
+
+本文件描述了电商应用中支付相关的API设计，包括支付请求、支付结果通知等功能。
+
+二、支付请求API
+
+1. API路径：/api/payments/requests
+2. 请求方法：POST
+3. 请求参数：
+   - order_id: 订单ID（必填）
+   - payment_method: 支付方式（必填）
+   - amount: 支付金额（必填）
+4. 响应：
+   - success: true
+   - message: "支付请求成功"
+   - data: 支付请求信息（支付交易号、支付URL）
+
+三、支付结果通知API
+
+1. API路径：/api/payments/notifications
+2. 请求方法：POST
+3. 请求参数：
+   - transaction_id: 支付交易号（必填）
+   - payment_status: 支付状态（必填）
+   - amount: 支付金额（必填）
+4. 响应：
+   - success: true
+   - message: "支付结果通知成功"
+
+四、支付查询API
+
+1. API路径：/api/payments/queries
+2. 请求方法：GET
+3. 请求参数：
+   - transaction_id: 支付交易号（必填）
+4. 响应：
+   - success: true
+   - message: "支付查询成功"
+   - data: 支付信息（支付交易号、支付状态、支付金额）
+
+五、总结
+
+支付API设计应确保支付操作的可靠性和安全性。通过上述API设计，可以满足电商应用中支付管理的需求。

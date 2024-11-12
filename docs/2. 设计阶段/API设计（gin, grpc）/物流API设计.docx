@@ -1,0 +1,46 @@
+物流API设计
+
+一、概述
+
+本文件描述了电商应用中物流相关的API设计，包括物流信息查询、物流状态更新等功能。
+
+二、物流信息查询API
+
+1. API路径：/api/logistics/track
+2. 请求方法：GET
+3. 请求参数：
+   - logistics_id: 物流单ID（必填）
+4. 响应：
+   - success: true
+   - message: "物流信息查询成功"
+   - data: 物流信息（物流公司、发货时间、送达时间、物流状态）
+
+三、物流状态更新API
+
+1. API路径：/api/logistics/update
+2. 请求方法：POST
+3. 请求参数：
+   - logistics_id: 物流单ID（必填）
+   - status: 物流状态（必填）
+   - description: 物流状态描述（可选）
+4. 响应：
+   - success: true
+   - message: "物流状态更新成功"
+
+四、物流费用计算API
+
+1. API路径：/api/logistics/calculate
+2. 请求方法：POST
+3. 请求参数：
+   - from: 发货地址（必填）
+   - to: 收货地址（必填）
+   - weight: 重量（必填）
+   - volume: 体积（可选）
+4. 响应：
+   - success: true
+   - message: "物流费用计算成功"
+   - data: 物流费用信息（物流公司、费用）
+
+五、总结
+
+物流API设计应确保物流信息的准确性和及时性。通过上述API设计，可以满足电商应用中物流管理的需求。

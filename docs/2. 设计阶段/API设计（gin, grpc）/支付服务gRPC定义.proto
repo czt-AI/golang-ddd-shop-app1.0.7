@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package payment;
+
+// 支付服务定义
+service PaymentService {
+  rpc InitiatePayment (InitiatePaymentRequest) returns (PaymentResponse);
+  rpc CapturePayment (CapturePaymentRequest) returns (PaymentResponse);
+  rpc RefundPayment (RefundPaymentRequest) returns (PaymentResponse);
+}
+
+// 初始化支付请求
+message InitiatePaymentRequest {
+  string order_id = 1;
+  string payment_method = 2;
+  double amount = 3;
+}
+
+// 支付响应
+message PaymentResponse {
+  string transaction_id = 1;
+  string status = 2;
+  string message = 3;
+}
+
+// 捕获支付请求
+message CapturePaymentRequest {
+  string transaction_id = 1;
+}
+
+// 退款请求
+message RefundPaymentRequest {
+  string transaction_id = 1;
+  double amount = 2;
+}
